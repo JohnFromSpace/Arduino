@@ -10,3 +10,11 @@ void setup() {
   digitalWrite(ledPin, LOW);
   delay(9600);
 }
+
+void loop() {
+  pirValue = digitalRead(pirPin);
+  digitalWrite(ledPin, pirValue);
+  Serial.print(pirValue);
+  Serial.println();
+  delay(500);
+}
