@@ -3,7 +3,7 @@ int inPin = 2; //number of pin for button
 int val = 0; //counting states of the pin
 
 void setup() {
-  pinMode(ledPin, OUTTPUT); //declaring the pin as an output 
+  pinMode(ledPin, OUTPUT); //declaring the pin as an output 
   pinMode(inPin, INPUT); //declaring the pin as input
 }
 
