@@ -19,5 +19,9 @@ void loop() {
     // Read the soil moisture level
     int moistureLevel = analogRead(soilMoisturePin);
     
+    // Print the moisture level to the Serial Monitor
+    Serial.print("Moisture Level: ");
+    Serial.println(moistureLevel);
+    
       
 }
