@@ -3,3 +3,6 @@ const int soilMoisturePin = A0;
 
 // Define the pin for the water pump
 const int waterPumpPin = 8;
+
+// Define the moisture threshold below which the system will water the plant
+const int moistureThreshold = 500;
