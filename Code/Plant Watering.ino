@@ -25,7 +25,11 @@ void loop() {
     
     // Check if the soil moisture is below the threshold
     if (moistureLevel < moistureThreshold) {
+        // Water the plant by turning on the water pump
+        digitalWrite(waterPumpPin, HIGH);
+        Serial.println("Watering the plant");
         
+            
     }
     
      
