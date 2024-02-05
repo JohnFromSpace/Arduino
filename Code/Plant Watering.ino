@@ -16,5 +16,8 @@ void setup() {
 }
 
 void loop() {
-  
+    // Read the soil moisture level
+    int moistureLevel = analogRead(soilMoisturePin);
+    
+      
 }
