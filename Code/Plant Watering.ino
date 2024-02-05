@@ -32,7 +32,9 @@ void loop() {
         // Add a delay to water for a certain duration (adjust as needed)
         delay(5000);  // Watering for 5 seconds (adjust as needed)
         
-                
+        // Turn off the water pump
+        digitalWrite(waterPumpPin, LOW);
+        Serial.println("Watering complete");        
     }
     
      
