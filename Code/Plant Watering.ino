@@ -10,6 +10,7 @@ const int moistureThreshold = 500;
 void setup() {
     // Initialize Serial communication
     Serial.begin(9600);
-
     
+    // Set water pump pin as an output
+    pinMode(waterPumpPin, OUTPUT);    
 }
