@@ -8,5 +8,8 @@ const int waterPumpPin = 8;
 const int moistureThreshold = 500;
 
 void setup() {
-  
+    // Initialize Serial communication
+    Serial.begin(9600);
+
+    
 }
