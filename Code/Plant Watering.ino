@@ -14,3 +14,7 @@ void setup() {
     // Set water pump pin as an output
     pinMode(waterPumpPin, OUTPUT);    
 }
+
+void loop() {
+  
+}
