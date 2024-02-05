@@ -23,5 +23,10 @@ void loop() {
     Serial.print("Moisture Level: ");
     Serial.println(moistureLevel);
     
-      
+    // Check if the soil moisture is below the threshold
+    if (moistureLevel < moistureThreshold) {
+        
+    }
+    
+     
 }
