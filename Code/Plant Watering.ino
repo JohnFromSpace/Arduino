@@ -37,5 +37,6 @@ void loop() {
         Serial.println("Watering complete");        
     }
     
-     
+    // Add a delay before the next iteration (adjust as needed)
+    delay(60000);  // Wait for 1 minute (adjust as needed)     
 }
