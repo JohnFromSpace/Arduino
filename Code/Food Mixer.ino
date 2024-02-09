@@ -46,5 +46,13 @@ void loop() {
     stopMotor();
   }
   
+  // Check if data is available in the serial buffer
+  if (Serial.available() > 0) {
+    // Read the command from serial input
+    char command = Serial.read();
+    
+    
+  }
+  
   
 }
