@@ -33,3 +33,18 @@ void setup() {
   // Set initial direction (clockwise)
   digitalWrite(directionPin, clockwise);
 }
+
+void loop() {
+  // Read speed from potentiometer
+  int targetSpeed = map(analogRead(potentiometerPin), 0, 1023, minSpeed, maxSpeed);
+  
+  // Smoothly adjust motor speed
+  smoothSpeed(targetSpeed);
+  
+  // Check for stop command timeout
+  if (millis() - lastStopTime >= stopTimeout && motorRunning) {
+    stopMotor();
+  }
+  
+  
+}
