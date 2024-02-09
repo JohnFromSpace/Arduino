@@ -88,5 +88,12 @@ void loop() {
 }
 
 void startMotor() {
-  
+  // Check if speed is sufficient to start the motor
+  if (currentSpeed >= minSpeed) {
+    motorRunning = true;
+    rampSpeed(currentSpeed, minSpeed, rampDuration);
+    Serial.println("Motor started.");
+  } else {
+    Serial.println("Speed is too low to start the motor.");
+  }  
 }
