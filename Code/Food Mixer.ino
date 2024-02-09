@@ -83,5 +83,6 @@ void loop() {
     }
   }
   
-  
+  // Delay to stabilize readings
+  delay(50);
 }
