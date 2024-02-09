@@ -86,3 +86,7 @@ void loop() {
   // Delay to stabilize readings
   delay(50);
 }
+
+void startMotor() {
+  
+}
