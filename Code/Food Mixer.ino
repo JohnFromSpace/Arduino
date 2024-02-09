@@ -106,3 +106,9 @@ void stopMotor() {
     Serial.println("Motor stopped.");
   }
 }
+
+void changeDirection() {
+  // Toggle the direction
+  digitalWrite(directionPin, !digitalRead(directionPin));
+  Serial.println("Direction changed.");
+}
