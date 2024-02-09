@@ -16,3 +16,9 @@ const unsigned int rampDuration = 1000; // 1 second
 
 // Define timeout for stop command (in milliseconds)
 const unsigned long stopTimeout = 5000; // 5 seconds
+
+unsigned long lastStopTime = 0; // Variable to store the time when stop command was last received
+int currentSpeed = 0; // Variable to store the current speed of the motor
+bool motorRunning = false; // Flag to indicate if the motor is running
+bool directionChanging = false; // Flag to indicate if the direction is being changed
+
