@@ -97,3 +97,12 @@ void startMotor() {
     Serial.println("Speed is too low to start the motor.");
   }  
 }
+
+void stopMotor() {
+  if (motorRunning) {
+    motorRunning = false;
+    rampSpeed(currentSpeed, 0, rampDuration);
+    lastStopTime = millis(); // Update stop time
+    Serial.println("Motor stopped.");
+  }
+}
