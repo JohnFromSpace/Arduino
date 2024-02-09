@@ -22,3 +22,14 @@ int currentSpeed = 0; // Variable to store the current speed of the motor
 bool motorRunning = false; // Flag to indicate if the motor is running
 bool directionChanging = false; // Flag to indicate if the direction is being changed
 
+void setup() {
+  // Initialize serial communication
+  Serial.begin(9600);
+  
+  // Set motor and direction pins as outputs
+  pinMode(motorPin, OUTPUT);
+  pinMode(directionPin, OUTPUT);
+  
+  // Set initial direction (clockwise)
+  digitalWrite(directionPin, clockwise);
+}
