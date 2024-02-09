@@ -6,3 +6,7 @@ const int potentiometerPin = A0; // Pin connected to potentiometer
 // Define motor directions
 const int clockwise = HIGH;
 const int counterclockwise = LOW;
+
+// Define minimum and maximum speed values
+const int minSpeed = 50;  // Minimum speed required to start the motor
+const int maxSpeed = 255;
