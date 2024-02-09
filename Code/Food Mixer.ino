@@ -10,3 +10,9 @@ const int counterclockwise = LOW;
 // Define minimum and maximum speed values
 const int minSpeed = 50;  // Minimum speed required to start the motor
 const int maxSpeed = 255;
+
+// Define ramp up/down duration (in milliseconds)
+const unsigned int rampDuration = 1000; // 1 second
+
+// Define timeout for stop command (in milliseconds)
+const unsigned long stopTimeout = 5000; // 5 seconds
