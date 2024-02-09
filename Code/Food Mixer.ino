@@ -118,3 +118,13 @@ void readSpeed() {
   Serial.print("Current speed: ");
   Serial.println(currentSpeed);
 }
+
+void setSpeed(int speed) {
+  // Ensure speed is within the valid range
+  speed = constrain(speed, minSpeed, maxSpeed);
+  
+  // Smoothly adjust motor speed
+  smoothSpeed(speed);
+  Serial.print("Speed set to: ");
+  Serial.println(speed);
+}
