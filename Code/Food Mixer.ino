@@ -51,7 +51,36 @@ void loop() {
     // Read the command from serial input
     char command = Serial.read();
     
-    
+    // Perform corresponding actions based on the command
+    switch (command) {
+      case 'S': // Start motor
+        startMotor();
+        break;
+      case 'T': // Stop motor
+        stopMotor();
+        break;
+      case 'D': // Change direction
+        if (!motorRunning) {
+          changeDirection();
+        } else {
+          directionChanging = true;
+          Serial.println("Direction cannot be changed while motor is running.");
+        }
+        break;
+      case 'R': // Read current speed
+        readSpeed();
+        break;
+      default:
+        // Check if command is a digit (for setting speed via serial input)
+        if (isdigit(command)) {
+          int speed = (command - '0') * 25; // Convert char to integer and scale to a range of 0-255
+          setSpeed(speed);
+        } else {
+          // Invalid command
+          Serial.println("Invalid command. Use S (start), T (stop), D (change direction), R (read speed), or specify speed (0-9).");
+        }
+        break;
+    }
   }
   
   
