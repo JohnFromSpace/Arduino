@@ -140,3 +140,17 @@ void smoothSpeed(int targetSpeed) {
   analogWrite(motorPin, targetSpeed); // Ensure final speed is set correctly
   currentSpeed = targetSpeed; // Update current speed
 }
+
+void rampSpeed(int startSpeed, int targetSpeed, unsigned int duration) {
+  // Ramp up or down motor speed gradually
+  int step = (targetSpeed > startSpeed) ? 1 : -1;
+  unsigned long startTime = millis();
+  while (millis() - startTime < duration) {
+    int elapsedTime = millis() - startTime;
+    int newSpeed = startSpeed + (step * elapsedTime * (targetSpeed - startSpeed)) / duration;
+    analogWrite(motorPin, newSpeed);
+    delay(10); // Adjust delay for smoother transition
+  }
+  analogWrite(motorPin, targetSpeed); // Ensure final speed is set correctly
+  currentSpeed = targetSpeed; // Update current speed
+}
