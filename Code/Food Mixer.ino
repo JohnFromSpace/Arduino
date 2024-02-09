@@ -112,3 +112,9 @@ void changeDirection() {
   digitalWrite(directionPin, !digitalRead(directionPin));
   Serial.println("Direction changed.");
 }
+
+void readSpeed() {
+  // Read and print the current speed
+  Serial.print("Current speed: ");
+  Serial.println(currentSpeed);
+}
