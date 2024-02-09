@@ -128,3 +128,15 @@ void setSpeed(int speed) {
   Serial.print("Speed set to: ");
   Serial.println(speed);
 }
+
+void smoothSpeed(int targetSpeed) {
+  // Smoothly adjust motor speed to the target speed
+  int step = (targetSpeed > currentSpeed) ? 1 : -1;
+  for (int i = currentSpeed; i != targetSpeed; i += step) {
+    analogWrite(motorPin, i);
+    delay(10); // Adjust delay for smoother transition
+    currentSpeed = i;
+  }
+  analogWrite(motorPin, targetSpeed); // Ensure final speed is set correctly
+  currentSpeed = targetSpeed; // Update current speed
+}
