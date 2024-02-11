@@ -51,3 +51,12 @@ void setup() {
     // Set initial setpoint
     setpoint = targetPosition;    
 }
+
+void loop() {
+    // Read sensor values
+    int leftSensorValue = analogRead(LEFT_SENSOR);
+    int centerSensorValue = analogRead(CENTER_SENSOR);
+    int rightSensorValue = analogRead(RIGHT_SENSOR);
+    
+    
+}
