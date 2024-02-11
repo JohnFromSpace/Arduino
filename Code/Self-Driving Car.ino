@@ -95,8 +95,13 @@ void loop() {
           // Turn right
           turnRight();
         } else {
-              // Move backward
-              moveBackward();
+          // Move backward
+          moveBackward();
         }    
     }
+}
+
+// Function to make the robot turn left
+void turnLeft() {
+  
 }
