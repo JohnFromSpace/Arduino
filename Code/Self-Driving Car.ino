@@ -79,5 +79,11 @@ void loop() {
     duration = pulseIn(ECHO_PIN, HIGH);
     distance = (duration / 2) / 29.1;
     
-    
+    // Make decisions based on sensor readings and obstacle detection
+    if (distance < MIN_DISTANCE) {
+    // Stop and avoid obstacle
+    avoidObstacle();
+    } else {
+        
+    }
 }
