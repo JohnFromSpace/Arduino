@@ -127,5 +127,9 @@ void turnRight() {
 void goStraight() {
     int leftSpeed = constrain(BASE_SPEED - output, -255, 255);
     int rightSpeed = constrain(BASE_SPEED + output, -255, 255);
-        
+
+    analogWrite(LEFT_MOTOR_1, abs(leftSpeed));
+    analogWrite(LEFT_MOTOR_2, 0);
+    analogWrite(RIGHT_MOTOR_1, abs(rightSpeed));
+    analogWrite(RIGHT_MOTOR_2, 0);
 }
