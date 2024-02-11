@@ -15,3 +15,7 @@
 
 // Define sensor threshold values
 #define THRESHOLD 500
+
+// Define speed control parameters
+#define BASE_SPEED 150
+#define TURN_SPEED 100
