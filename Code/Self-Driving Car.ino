@@ -96,7 +96,7 @@ void loop() {
           turnRight();
         } else {
           // Move backward
-          moveBackward();
+          moveBackwards();
         }    
     }
 }
@@ -140,4 +140,9 @@ void moveBackwards() {
     analogWrite(LEFT_MOTOR_2, BASE_SPEED);
     analogWrite(RIGHT_MOTOR_1, 0);
     analogWrite(RIGHT_MOTOR_2, BASE_SPEED);    
+}
+
+// Function to avoid obstacle
+void avoidObstacle() {
+    
 }
