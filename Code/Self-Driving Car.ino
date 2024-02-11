@@ -125,5 +125,7 @@ void turnRight() {
 
 // Function to make the robot go straight
 void goStraight() {
-    
+    int leftSpeed = constrain(BASE_SPEED - output, -255, 255);
+    int rightSpeed = constrain(BASE_SPEED + output, -255, 255);
+        
 }
