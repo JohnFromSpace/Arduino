@@ -25,3 +25,6 @@ double Kp = 2.0, Ki = 0.5, Kd = 1.0;
 double targetPosition = 512; // Middle of sensor range
 double input, output, setpoint;
 PID pid(&input, &output, &setpoint, Kp, Ki, Kd, DIRECT);
+
+// Define obstacle avoidance parameters
+#define MIN_DISTANCE 20 // Minimum distance to avoid obstacle (in cm)
