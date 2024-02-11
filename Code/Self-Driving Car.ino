@@ -136,5 +136,8 @@ void goStraight() {
 
 // Function to make the robot move backwards
 void moveBackwards() {
-    
+    analogWrite(LEFT_MOTOR_1, 0);
+    analogWrite(LEFT_MOTOR_2, BASE_SPEED);
+    analogWrite(RIGHT_MOTOR_1, 0);
+    analogWrite(RIGHT_MOTOR_2, BASE_SPEED);    
 }
