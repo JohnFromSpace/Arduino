@@ -61,5 +61,13 @@ void loop() {
     // Calculate error for PID
     input = (leftSensorValue + rightSensorValue) / 2.0;
     
+    // Compute PID output
+    pid.Compute();
+    
+    // Determine the line position
+    bool onLeft = leftSensorValue > THRESHOLD;
+    bool onCenter = centerSensorValue > THRESHOLD;
+    bool onRight = rightSensorValue > THRESHOLD;
+    
     
 }
