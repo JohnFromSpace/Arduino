@@ -40,5 +40,8 @@ void setup() {
     pinMode(TRIGGER_PIN, OUTPUT);
     pinMode(ECHO_PIN, INPUT);
     
+    // Initialize serial communication
+    Serial.begin(9600);
+    
         
 }
