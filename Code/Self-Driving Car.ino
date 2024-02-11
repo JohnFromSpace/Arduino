@@ -84,6 +84,19 @@ void loop() {
     // Stop and avoid obstacle
     avoidObstacle();
     } else {
-        
+        // Continue line following
+        if (onLeft && !onCenter && !onRight) {
+          // Turn left
+          turnLeft();
+        } else if (!onLeft && onCenter && !onRight) {
+          // Go straight
+          goStraight();
+        } else if (!onLeft && !onCenter && onRight) {
+          // Turn right
+          turnRight();
+        } else {
+              // Move backward
+              moveBackward();
+        }    
     }
 }
