@@ -48,5 +48,6 @@ void setup() {
     pid.SetSampleTime(10); // 10ms sample time
     pid.SetOutputLimits(-255, 255); // Output limits for motor control
     
-        
+    // Set initial setpoint
+    setpoint = targetPosition;    
 }
