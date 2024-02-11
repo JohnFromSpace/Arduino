@@ -151,5 +151,10 @@ void avoidObstacle() {
     analogWrite(RIGHT_MOTOR_2, BASE_SPEED);
     delay(500); // Back up for 0.5 seconds
     
-        
+    // Turn right
+    analogWrite(LEFT_MOTOR_1, BASE_SPEED);
+    analogWrite(LEFT_MOTOR_2, 0);
+    analogWrite(RIGHT_MOTOR_1, 0);
+    analogWrite(RIGHT_MOTOR_2, BASE_SPEED);
+    delay(1000); // Turn right for 1 second    
 }
