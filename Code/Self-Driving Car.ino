@@ -36,5 +36,9 @@ void setup() {
     pinMode(RIGHT_MOTOR_1, OUTPUT);
     pinMode(RIGHT_MOTOR_2, OUTPUT);
     
+    // Initialize ultrasonic sensor pins
+    pinMode(TRIGGER_PIN, OUTPUT);
+    pinMode(ECHO_PIN, INPUT);
+    
         
 }
