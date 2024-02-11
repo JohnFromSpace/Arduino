@@ -30,5 +30,11 @@ PID pid(&input, &output, &setpoint, Kp, Ki, Kd, DIRECT);
 #define MIN_DISTANCE 20 // Minimum distance to avoid obstacle (in cm)
 
 void setup() {
+    // Initialize motor pins
+    pinMode(LEFT_MOTOR_1, OUTPUT);
+    pinMode(LEFT_MOTOR_2, OUTPUT);
+    pinMode(RIGHT_MOTOR_1, OUTPUT);
+    pinMode(RIGHT_MOTOR_2, OUTPUT);
     
+        
 }
