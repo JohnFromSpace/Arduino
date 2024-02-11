@@ -12,3 +12,6 @@
 #define LEFT_MOTOR_2 10
 #define RIGHT_MOTOR_1 5
 #define RIGHT_MOTOR_2 6
+
+// Define sensor threshold values
+#define THRESHOLD 500
