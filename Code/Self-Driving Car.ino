@@ -133,3 +133,8 @@ void goStraight() {
     analogWrite(RIGHT_MOTOR_1, abs(rightSpeed));
     analogWrite(RIGHT_MOTOR_2, 0);
 }
+
+// Function to make the robot move backwards
+void moveBackwards() {
+    
+}
