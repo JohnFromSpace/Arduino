@@ -58,5 +58,8 @@ void loop() {
     int centerSensorValue = analogRead(CENTER_SENSOR);
     int rightSensorValue = analogRead(RIGHT_SENSOR);
     
+    // Calculate error for PID
+    input = (leftSensorValue + rightSensorValue) / 2.0;
+    
     
 }
