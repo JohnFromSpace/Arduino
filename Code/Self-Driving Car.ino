@@ -43,5 +43,10 @@ void setup() {
     // Initialize serial communication
     Serial.begin(9600);
     
+    // Set PID parameters
+    pid.SetMode(AUTOMATIC);
+    pid.SetSampleTime(10); // 10ms sample time
+    pid.SetOutputLimits(-255, 255); // Output limits for motor control
+    
         
 }
