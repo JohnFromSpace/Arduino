@@ -144,5 +144,12 @@ void moveBackwards() {
 
 // Function to avoid obstacle
 void avoidObstacle() {
+    // Back up
+    analogWrite(LEFT_MOTOR_1, 0);
+    analogWrite(LEFT_MOTOR_2, BASE_SPEED);
+    analogWrite(RIGHT_MOTOR_1, 0);
+    analogWrite(RIGHT_MOTOR_2, BASE_SPEED);
+    delay(500); // Back up for 0.5 seconds
     
+        
 }
