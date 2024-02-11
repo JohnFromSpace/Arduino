@@ -28,3 +28,7 @@ PID pid(&input, &output, &setpoint, Kp, Ki, Kd, DIRECT);
 
 // Define obstacle avoidance parameters
 #define MIN_DISTANCE 20 // Minimum distance to avoid obstacle (in cm)
+
+void setup() {
+    
+}
