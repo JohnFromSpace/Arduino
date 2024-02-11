@@ -103,5 +103,7 @@ void loop() {
 
 // Function to make the robot turn left
 void turnLeft() {
-  
+    int leftSpeed = constrain(BASE_SPEED - output, -255, 255);
+    int rightSpeed = constrain(BASE_SPEED + output, -255, 255);
+     
 }
