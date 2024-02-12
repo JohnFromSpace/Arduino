@@ -177,5 +177,8 @@ void nextTrack() {
 }
 
 void prevTrack() {
-    
+    if (currentTrack > 1) {
+        currentTrack--;
+        playTrack(currentTrack);
+    }    
 }
