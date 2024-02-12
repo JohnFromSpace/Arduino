@@ -190,3 +190,7 @@ void increaseVolume() {
         updateVolumeDisplay();
     }    
 }
+
+void decreaseVolume() {
+    
+}
