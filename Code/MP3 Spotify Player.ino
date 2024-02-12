@@ -182,3 +182,7 @@ void prevTrack() {
         playTrack(currentTrack);
     }    
 }
+
+void increaseVolume() {
+    
+}
