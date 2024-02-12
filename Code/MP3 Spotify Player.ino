@@ -54,6 +54,12 @@ void setup() {
         displayError("SD Card Error!");
         return;
     }
-
+    
+    // DFPlayer Initialization
+    if (!myDFPlayer.begin(mySerial)) {
+        displayError("DFPlayer Error!");
+        return;
+    }
+    
         
 }
