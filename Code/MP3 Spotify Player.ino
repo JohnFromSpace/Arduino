@@ -200,5 +200,9 @@ void decreaseVolume() {
 }
 
 void playTrack(int trackNumber) {
-    
+    myDFPlayer.playFolder(1, trackNumber);
+    isPlaying = true;
+    isPaused = false;
+    strcpy(currentTrackInfo, getTrackInfo(trackNumber).c_str());
+    displayTrackInfo(currentTrackInfo);    
 }
