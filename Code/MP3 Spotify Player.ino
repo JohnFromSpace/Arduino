@@ -32,3 +32,7 @@ int volume = 20;
 int currentTrack = 1;
 int totalTracks = 0;
 char currentTrackInfo[64] = "";
+
+void setup() {
+    
+}
