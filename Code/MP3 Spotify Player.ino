@@ -34,5 +34,9 @@ int totalTracks = 0;
 char currentTrackInfo[64] = "";
 
 void setup() {
-    
+    // Serial Communication
+    Serial.begin(9600);
+    mySerial.begin(9600);
+
+        
 }
