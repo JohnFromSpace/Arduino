@@ -206,3 +206,7 @@ void playTrack(int trackNumber) {
     strcpy(currentTrackInfo, getTrackInfo(trackNumber).c_str());
     displayTrackInfo(currentTrackInfo);    
 }
+
+void togglePause() {
+    
+}
