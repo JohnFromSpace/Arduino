@@ -254,5 +254,7 @@ void displayTrackInfo(const char* trackInfo) {
 }
 
 void updateVolumeDisplay() {
-    
+    lcd.setCursor(0, 1);
+    lcd.print("Volume: ");
+    lcd.print(volume);    
 }
