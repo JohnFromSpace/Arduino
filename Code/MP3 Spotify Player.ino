@@ -72,3 +72,7 @@ void setup() {
     attachInterrupt(digitalPinToInterrupt(BUTTON_VOL_UP), increaseVolume, FALLING);
     attachInterrupt(digitalPinToInterrupt(BUTTON_VOL_DOWN), decreaseVolume, FALLING);   
 }
+
+void loop() {
+    
+}
