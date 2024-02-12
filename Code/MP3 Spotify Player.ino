@@ -223,6 +223,24 @@ String getTrackInfo(int trackNumber) {
     char artistName[64];
     char albumName[64];
     int trackDuration;
-
-        
+    
+    if (myDFPlayer.readFileCountsInMP3Folder(trackNumber, trackName, artistName, albumName, trackDuration)) {
+        trackInfo += "Title: ";
+        trackInfo += trackName;
+        trackInfo += "\nArtist: ";
+        trackInfo += artistName;
+        trackInfo += "\nAlbum: ";
+        trackInfo += albumName;
+        trackInfo += "\nDuration: ";
+        trackInfo += String(trackDuration / 60);
+        trackInfo += ":";
+        if ((trackDuration % 60) < 10) {
+            trackInfo += "0";
+        }
+        trackInfo += String(trackDuration % 60);
+    } else {
+        trackInfo = "Error: Unable to retrieve track info.";
+    }
+    
+    return trackInfo;    
 }
