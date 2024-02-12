@@ -65,5 +65,10 @@ void setup() {
     myDFPlayer.volume(volume);
     totalTracks = myDFPlayer.readFileCounts();
 
-       
+    // Button Interrupts
+    attachInterrupt(digitalPinToInterrupt(BUTTON_PLAY_PAUSE), playPause, FALLING);
+    attachInterrupt(digitalPinToInterrupt(BUTTON_NEXT), nextTrack, FALLING);
+    attachInterrupt(digitalPinToInterrupt(BUTTON_PREV), prevTrack, FALLING);
+    attachInterrupt(digitalPinToInterrupt(BUTTON_VOL_UP), increaseVolume, FALLING);
+    attachInterrupt(digitalPinToInterrupt(BUTTON_VOL_DOWN), decreaseVolume, FALLING);   
 }
