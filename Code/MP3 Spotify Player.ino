@@ -168,3 +168,7 @@ void playPause() {
         togglePause();
     }    
 }
+
+void nextTrack() {
+    
+}
