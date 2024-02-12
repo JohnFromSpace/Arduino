@@ -184,5 +184,9 @@ void prevTrack() {
 }
 
 void increaseVolume() {
-    
+    if (volume < 30) {
+        volume++;
+        myDFPlayer.volume(volume);
+        updateVolumeDisplay();
+    }    
 }
