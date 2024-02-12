@@ -160,3 +160,7 @@ void displayError(const char* errorMessage) {
     lcd.clear();
     lcd.print(errorMessage);    
 }
+
+void playPause() {
+    
+}
