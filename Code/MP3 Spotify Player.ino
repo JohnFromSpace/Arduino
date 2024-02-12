@@ -208,5 +208,5 @@ void playTrack(int trackNumber) {
 }
 
 void togglePause() {
-    
+
 }
