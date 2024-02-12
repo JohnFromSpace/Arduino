@@ -155,3 +155,7 @@ void handleDFPlayerError(int errorCode) {
             break;
     }    
 }
+
+void displayError(const char* errorMessage) {
+    
+}
