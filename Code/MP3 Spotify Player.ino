@@ -41,6 +41,13 @@ void setup() {
     // LCD Initialization
     lcd.begin(16, 2);
     lcd.print("MP3 Player");
+    
+    // Button Setup
+    pinMode(BUTTON_PLAY_PAUSE, INPUT_PULLUP);
+    pinMode(BUTTON_NEXT, INPUT_PULLUP);
+    pinMode(BUTTON_PREV, INPUT_PULLUP);
+    pinMode(BUTTON_VOL_UP, INPUT_PULLUP);
+    pinMode(BUTTON_VOL_DOWN, INPUT_PULLUP);
 
         
 }
