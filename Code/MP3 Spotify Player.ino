@@ -127,5 +127,31 @@ void handlePlayFinished() {
 }
 
 void handleDFPlayerError(int errorCode) {
-    
+    switch (errorCode) {
+        case Busy:
+            Serial.println("DFPlayer Busy");
+            break;
+        case Sleeping:
+            Serial.println("DFPlayer Sleeping");
+            break;
+        case SerialWrongStackCMD:
+            Serial.println("DFPlayer Serial Wrong Stack CMD");
+            break;
+        case CheckSumNotMatch:
+            Serial.println("DFPlayer Check Sum Not Match");
+            break;
+        case FileIndexOut:
+            Serial.println("DFPlayer File Index Out of Bound");
+            break;
+        case FileMismatch:
+            Serial.println("DFPlayer File Mismatch");
+            break;
+        case Advertise:
+            Serial.println("DFPlayer Advertisement");
+            break;
+        default:
+            Serial.print("DFPlayer Error: ");
+            Serial.println(errorCode);
+            break;
+    }    
 }
