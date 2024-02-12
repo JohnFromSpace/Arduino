@@ -216,3 +216,7 @@ void togglePause() {
         isPaused = true;
     }
 }
+
+String getTrackInfo(int trackNumber) {
+    
+}
