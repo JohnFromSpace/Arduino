@@ -170,5 +170,8 @@ void playPause() {
 }
 
 void nextTrack() {
-    
+    if (currentTrack < totalTracks) {
+        currentTrack++;
+        playTrack(currentTrack);
+    }    
 }
