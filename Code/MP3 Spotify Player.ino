@@ -74,5 +74,9 @@ void setup() {
 }
 
 void loop() {
-    
+    if (myDFPlayer.available()) {
+        handleDFPlayerResponse(myDFPlayer.readType(), myDFPlayer.read());
+    }
+
+        
 }
