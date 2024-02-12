@@ -77,6 +77,13 @@ void loop() {
     if (myDFPlayer.available()) {
         handleDFPlayerResponse(myDFPlayer.readType(), myDFPlayer.read());
     }
+    
+    int potValue = analogRead(POTENTIOMETER_PIN);
+    int mappedValue = map(potValue, 0, 1023, 1, totalTracks);
+    if (mappedValue != currentTrack) {
+        currentTrack = mappedValue;
+        playTrack(currentTrack);
+    }
 
-        
+    delay(100);    
 }
