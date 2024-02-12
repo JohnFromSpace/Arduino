@@ -162,5 +162,9 @@ void displayError(const char* errorMessage) {
 }
 
 void playPause() {
-    
+    if (!isPlaying) {
+        playTrack(currentTrack);
+    } else {
+        togglePause();
+    }    
 }
