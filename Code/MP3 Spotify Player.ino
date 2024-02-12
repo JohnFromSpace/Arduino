@@ -218,5 +218,11 @@ void togglePause() {
 }
 
 String getTrackInfo(int trackNumber) {
-    
+    String trackInfo = "";
+    char trackName[64];
+    char artistName[64];
+    char albumName[64];
+    int trackDuration;
+
+        
 }
