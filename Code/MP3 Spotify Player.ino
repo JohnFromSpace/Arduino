@@ -244,3 +244,7 @@ String getTrackInfo(int trackNumber) {
     
     return trackInfo;    
 }
+
+void displayTrackInfo(const char* trackInfo) {
+    
+}
