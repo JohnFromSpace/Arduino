@@ -61,5 +61,9 @@ void setup() {
         return;
     }
     
-        
+    myDFPlayer.setTimeOut(500);
+    myDFPlayer.volume(volume);
+    totalTracks = myDFPlayer.readFileCounts();
+
+       
 }
