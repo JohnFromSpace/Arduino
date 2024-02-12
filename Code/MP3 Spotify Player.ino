@@ -157,5 +157,6 @@ void handleDFPlayerError(int errorCode) {
 }
 
 void displayError(const char* errorMessage) {
-    
+    lcd.clear();
+    lcd.print(errorMessage);    
 }
