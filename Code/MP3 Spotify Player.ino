@@ -125,3 +125,7 @@ void handlePlayFinished() {
     // For example, you could play the next track in the playlist
     nextTrack();
 }
+
+void handleDFPlayerError(int errorCode) {
+    
+}
