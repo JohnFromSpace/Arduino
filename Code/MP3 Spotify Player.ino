@@ -118,3 +118,10 @@ void handleDFPlayerResponse(uint8_t type, int value) {
             break;
     }    
 }
+
+void handlePlayFinished() {
+    Serial.println("Play Finished");
+    // Add your logic here for what to do when a track finishes playing
+    // For example, you could play the next track in the playlist
+    nextTrack();
+}
