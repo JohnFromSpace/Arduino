@@ -208,5 +208,11 @@ void playTrack(int trackNumber) {
 }
 
 void togglePause() {
-
+    if (isPaused) {
+        myDFPlayer.start();
+        isPaused = false;
+    } else {
+        myDFPlayer.pause();
+        isPaused = true;
+    }
 }
