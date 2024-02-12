@@ -192,5 +192,9 @@ void increaseVolume() {
 }
 
 void decreaseVolume() {
-    
+    if (volume > 0) {
+        volume--;
+        myDFPlayer.volume(volume);
+        updateVolumeDisplay();
+    }    
 }
