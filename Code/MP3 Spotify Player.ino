@@ -198,3 +198,7 @@ void decreaseVolume() {
         updateVolumeDisplay();
     }    
 }
+
+void playTrack(int trackNumber) {
+    
+}
