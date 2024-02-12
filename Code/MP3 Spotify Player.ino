@@ -37,6 +37,10 @@ void setup() {
     // Serial Communication
     Serial.begin(9600);
     mySerial.begin(9600);
+    
+    // LCD Initialization
+    lcd.begin(16, 2);
+    lcd.print("MP3 Player");
 
         
 }
