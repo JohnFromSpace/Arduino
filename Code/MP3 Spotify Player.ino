@@ -87,3 +87,7 @@ void loop() {
 
     delay(100);    
 }
+
+void handleDFPlayerResponse(uint8_t type, int value) {
+    
+}
