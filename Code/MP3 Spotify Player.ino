@@ -49,5 +49,11 @@ void setup() {
     pinMode(BUTTON_VOL_UP, INPUT_PULLUP);
     pinMode(BUTTON_VOL_DOWN, INPUT_PULLUP);
 
+    // SD Card Initialization
+    if (!SD.begin(SD_CS)) {
+        displayError("SD Card Error!");
+        return;
+    }
+
         
 }
