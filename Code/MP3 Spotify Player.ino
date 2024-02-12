@@ -246,5 +246,9 @@ String getTrackInfo(int trackNumber) {
 }
 
 void displayTrackInfo(const char* trackInfo) {
-    
+    lcd.clear();
+    lcd.setCursor(0, 0);
+    lcd.print("Now Playing:");
+    lcd.setCursor(0, 1);
+    lcd.print(trackInfo);    
 }
