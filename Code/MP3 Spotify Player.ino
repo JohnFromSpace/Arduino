@@ -89,5 +89,32 @@ void loop() {
 }
 
 void handleDFPlayerResponse(uint8_t type, int value) {
-    
+    switch (type) {
+        case TimeOut:
+            Serial.println("DFPlayer Timeout");
+            break;
+        case WrongStack:
+            Serial.println("DFPlayer Wrong Stack");
+            break;
+        case DFPlayerCardInserted:
+            Serial.println("DFPlayer Card Inserted");
+            break;
+        case DFPlayerCardRemoved:
+            Serial.println("DFPlayer Card Removed");
+            break;
+        case DFPlayerCardOnline:
+            Serial.println("DFPlayer Card Online");
+            break;
+        case DFPlayerPlayFinished:
+            handlePlayFinished();
+            break;
+        case DFPlayerError:
+            handleDFPlayerError(value);
+            break;
+        default:
+            // Handle other responses
+            Serial.print("DFPlayer Unknown Response Type: ");
+            Serial.println(type);
+            break;
+    }    
 }
