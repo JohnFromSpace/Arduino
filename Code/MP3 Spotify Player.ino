@@ -175,3 +175,7 @@ void nextTrack() {
         playTrack(currentTrack);
     }    
 }
+
+void prevTrack() {
+    
+}
