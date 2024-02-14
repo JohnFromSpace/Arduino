@@ -59,5 +59,8 @@ void setup() {
     radio.openReadingPipe(1, pipes[1]);
     radio.startListening();
     
+    // Enable automatic channel hopping
+    radio.setAutoChannel(true);
+    
         
 }
