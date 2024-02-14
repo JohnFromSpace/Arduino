@@ -25,3 +25,6 @@ bool buttonState = false;
 const int BUFFER_SIZE = 10;
 char messageBuffer[BUFFER_SIZE][64]; // Increase buffer size to accommodate larger messages
 int bufferIndex = 0;
+
+// Packet sequence number
+uint16_t sequenceNumber = 0;
