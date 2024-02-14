@@ -62,5 +62,9 @@ void setup() {
     // Enable automatic channel hopping
     radio.setAutoChannel(true);
     
-        
+    pinMode(buttonPin, INPUT_PULLUP);
+    pinMode(ledTransmit, OUTPUT);
+    pinMode(ledReceive, OUTPUT);
+    
+         
 }
