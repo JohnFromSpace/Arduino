@@ -18,3 +18,5 @@ RF24 radio(9, 10); // CE, CSN pins
 const int buttonPin = 2; // Pin for the button
 const int ledTransmit = 3; // LED indicating transmission
 const int ledReceive = 4; // LED indicating reception
+
+bool buttonState = false;
