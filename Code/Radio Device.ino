@@ -46,3 +46,7 @@ int currentPayloadSize = MAX_PAYLOAD_SIZE; // Initial payload size
 // Message fragmentation constants
 const int MAX_FRAGMENT_SIZE = 28; // Maximum fragment size in bytes (to fit within 32-byte payload)
 const char FRAGMENT_DELIMITER = '|'; // Delimiter for fragmented messages
+
+void setup() {
+    
+}
