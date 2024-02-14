@@ -38,3 +38,7 @@ const int MAX_RETRIES = 3;
 // Power-saving mode
 const unsigned long SLEEP_INTERVAL = 60000; // Sleep for 1 minute
 const int RTC_INTERRUPT_PIN = 5; // Pin for RTC interrupt
+
+// Dynamic payload size adjustment
+const int MAX_PAYLOAD_SIZE = 32; // Maximum payload size in bytes
+int currentPayloadSize = MAX_PAYLOAD_SIZE; // Initial payload size
