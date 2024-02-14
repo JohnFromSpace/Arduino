@@ -48,5 +48,16 @@ const int MAX_FRAGMENT_SIZE = 28; // Maximum fragment size in bytes (to fit with
 const char FRAGMENT_DELIMITER = '|'; // Delimiter for fragmented messages
 
 void setup() {
+    Serial.begin(9600);
+    radio.begin();
+    radio.setPALevel(RF24_PA_LOW);
+    radio.setDataRate(RF24_250KBPS);
+    radio.setRetries(15, 15);
+    radio.setCRCLength(RF24_CRC_16); // Set CRC length
+    radio.enableDynamicPayloads(); // Enable dynamic payload length
+    radio.openWritingPipe(pipes[0]);
+    radio.openReadingPipe(1, pipes[1]);
+    radio.startListening();
     
+        
 }
