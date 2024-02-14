@@ -42,3 +42,7 @@ const int RTC_INTERRUPT_PIN = 5; // Pin for RTC interrupt
 // Dynamic payload size adjustment
 const int MAX_PAYLOAD_SIZE = 32; // Maximum payload size in bytes
 int currentPayloadSize = MAX_PAYLOAD_SIZE; // Initial payload size
+
+// Message fragmentation constants
+const int MAX_FRAGMENT_SIZE = 28; // Maximum fragment size in bytes (to fit within 32-byte payload)
+const char FRAGMENT_DELIMITER = '|'; // Delimiter for fragmented messages
