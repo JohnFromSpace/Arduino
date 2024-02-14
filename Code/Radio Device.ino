@@ -184,6 +184,45 @@ void sendMessageFragment(const char *fragment, int numFragments, int fragmentInd
 
   // Construct complete message
   String completeMessage = fragmentHeader + fragment;
-
   
+  uint8_t len = completeMessage.length(); // Calculate message length
+  if (len > currentPayloadSize) {
+    Serial.println("Fragment too long for current payload size. Truncating...");
+    len = currentPayloadSize; // Truncate message to fit payload size
+  }
+
+  radio.write(&len, sizeof(len)); // Send length first
+  radio.write(completeMessage.c_str(), len); // Send the message
+  Serial.println("Sent fragment: " + completeMessage);
+  digitalWrite(ledTransmit, HIGH); // Turn on transmit LED
+  
+  // Wait for acknowledgment or timeout
+  unsigned long startTime = millis();
+  bool ackReceived = false;
+  int retryCount = 0;
+  
+  while (!ackReceived && retryCount < MAX_RETRIES) {
+    if (radio.available()) {
+      // Read acknowledgment message
+      uint8_t ackLen;
+      radio.read(&ackLen, sizeof(ackLen));
+      char ackMessage[ackLen + 1];
+      radio.read(ackMessage, ackLen);
+      ackMessage[ackLen] = '\0'; // Null-terminate the string
+      Serial.println("Received acknowledgment: " + String(ackMessage));
+      ackReceived = true;
+    }
+    
+    // If acknowledgment not received, increment retry count and delay before retrying
+    if (!ackReceived) {
+      retryCount++;
+      delay(500); // Delay before retrying
+    }
+  }
+  
+  if (!ackReceived) {
+    Serial.println("Transmission timed out after " + String(MAX_RETRIES) + " retries.");
+  }
+  
+  digitalWrite(ledTransmit, LOW); // Turn off transmit LED
 }
