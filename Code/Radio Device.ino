@@ -13,3 +13,8 @@ Adafruit_Sensor *humidity, *temp, *pressure, *altitude;
 AESLib aes;
 
 const uint64_t pipes[2] = {0xF0F0F0F0E1LL, 0xF0F0F0F0D2LL}; // Addresses for communication pipes
+
+RF24 radio(9, 10); // CE, CSN pins
+const int buttonPin = 2; // Pin for the button
+const int ledTransmit = 3; // LED indicating transmission
+const int ledReceive = 4; // LED indicating reception
