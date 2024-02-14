@@ -34,3 +34,7 @@ uint8_t aesKey[] = {0x11, 0x22, 0x33, 0x44, 0x55, 0x66, 0x77, 0x88, 0x99, 0xAA, 
 
 // Maximum number of retries
 const int MAX_RETRIES = 3;
+
+// Power-saving mode
+const unsigned long SLEEP_INTERVAL = 60000; // Sleep for 1 minute
+const int RTC_INTERRUPT_PIN = 5; // Pin for RTC interrupt
