@@ -76,3 +76,16 @@ void setup() {
     pressure = bme.getPressureSensor();
     altitude = bme.getAltitudeSensor();         
 }
+
+void loop() {
+  // Check button state
+  bool newButtonState = digitalRead(buttonPin);
+  if (newButtonState != buttonState) {
+    buttonState = newButtonState;
+    if (buttonState) {
+      sendMessage("Button pressed! This is a high-priority message.", true);
+    }
+  }
+
+  
+}
