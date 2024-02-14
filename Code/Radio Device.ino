@@ -226,3 +226,9 @@ void sendMessageFragment(const char *fragment, int numFragments, int fragmentInd
   
   digitalWrite(ledTransmit, LOW); // Turn off transmit LED
 }
+
+bool verifyIntegrity(const char *message) {
+  // Placeholder function for message integrity check (e.g., checksum or hash)
+  // Here, we assume the message is always valid
+  return true;
+}
