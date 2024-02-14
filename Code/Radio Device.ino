@@ -20,3 +20,8 @@ const int ledTransmit = 3; // LED indicating transmission
 const int ledReceive = 4; // LED indicating reception
 
 bool buttonState = false;
+
+// Message buffer
+const int BUFFER_SIZE = 10;
+char messageBuffer[BUFFER_SIZE][64]; // Increase buffer size to accommodate larger messages
+int bufferIndex = 0;
