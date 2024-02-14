@@ -48,33 +48,33 @@ const int MAX_FRAGMENT_SIZE = 28; // Maximum fragment size in bytes (to fit with
 const char FRAGMENT_DELIMITER = '|'; // Delimiter for fragmented messages
 
 void setup() {
-    Serial.begin(9600);
-    radio.begin();
-    radio.setPALevel(RF24_PA_LOW);
-    radio.setDataRate(RF24_250KBPS);
-    radio.setRetries(15, 15);
-    radio.setCRCLength(RF24_CRC_16); // Set CRC length
-    radio.enableDynamicPayloads(); // Enable dynamic payload length
-    radio.openWritingPipe(pipes[0]);
-    radio.openReadingPipe(1, pipes[1]);
-    radio.startListening();
-    
-    // Enable automatic channel hopping
-    radio.setAutoChannel(true);
-    
-    pinMode(buttonPin, INPUT_PULLUP);
-    pinMode(ledTransmit, OUTPUT);
-    pinMode(ledReceive, OUTPUT);
-    
-    // Set up RTC interrupt
-    pinMode(RTC_INTERRUPT_PIN, INPUT_PULLUP);
-    
-    // Initialize BME280 sensor
-    bme.begin();
-    humidity = bme.getHumiditySensor();
-    temp = bme.getTemperatureSensor();
-    pressure = bme.getPressureSensor();
-    altitude = bme.getAltitudeSensor();         
+  Serial.begin(9600);
+  radio.begin();
+  radio.setPALevel(RF24_PA_LOW);
+  radio.setDataRate(RF24_250KBPS);
+  radio.setRetries(15, 15);
+  radio.setCRCLength(RF24_CRC_16); // Set CRC length
+  radio.enableDynamicPayloads(); // Enable dynamic payload length
+  radio.openWritingPipe(pipes[0]);
+  radio.openReadingPipe(1, pipes[1]);
+  radio.startListening();
+  
+  // Enable automatic channel hopping
+  radio.setAutoChannel(true);
+  
+  pinMode(buttonPin, INPUT_PULLUP);
+  pinMode(ledTransmit, OUTPUT);
+  pinMode(ledReceive, OUTPUT);
+  
+  // Set up RTC interrupt
+  pinMode(RTC_INTERRUPT_PIN, INPUT_PULLUP);
+  
+  // Initialize BME280 sensor
+  bme.begin();
+  humidity = bme.getHumiditySensor();
+  temp = bme.getTemperatureSensor();
+  pressure = bme.getPressureSensor();
+  altitude = bme.getAltitudeSensor();         
 }
 
 void loop() {
@@ -131,5 +131,21 @@ void loop() {
     }
   }
 
-    
+  delay(100);
+
+  // Transmit message from buffer
+  if (bufferIndex > 0) {
+    sendMessage(messageBuffer[0], false);
+    // Shift message queue
+    for (int i = 0; i < bufferIndex - 1; i++) {
+      strcpy(messageBuffer[i], messageBuffer[i + 1]);
+    }
+    bufferIndex--;
+  }
+
+  // Enter power-saving mode
+  delay(100); // Delay to ensure button press detection
+  attachInterrupt(digitalPinToInterrupt(RTC_INTERRUPT_PIN), goToSleep, LOW);
+  delay(100); // Allow time for interrupt to trigger
+  detachInterrupt(digitalPinToInterrupt(RTC_INTERRUPT_PIN));  
 }
