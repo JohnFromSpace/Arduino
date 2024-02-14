@@ -11,3 +11,5 @@ SparkFunBME280 bme; // Create BME280 object
 Adafruit_Sensor *humidity, *temp, *pressure, *altitude;
 
 AESLib aes;
+
+const uint64_t pipes[2] = {0xF0F0F0F0E1LL, 0xF0F0F0F0D2LL}; // Addresses for communication pipes
