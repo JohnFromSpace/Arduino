@@ -66,5 +66,13 @@ void setup() {
     pinMode(ledTransmit, OUTPUT);
     pinMode(ledReceive, OUTPUT);
     
-         
+    // Set up RTC interrupt
+    pinMode(RTC_INTERRUPT_PIN, INPUT_PULLUP);
+    
+    // Initialize BME280 sensor
+    bme.begin();
+    humidity = bme.getHumiditySensor();
+    temp = bme.getTemperatureSensor();
+    pressure = bme.getPressureSensor();
+    altitude = bme.getAltitudeSensor();         
 }
