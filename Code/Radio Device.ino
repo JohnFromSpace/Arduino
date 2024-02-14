@@ -161,5 +161,19 @@ void sendMessage(const char *message, bool highPriority) {
   // Compress data
   // Compression algorithm can be implemented here
   
-  
+  // Fragment message if necessary
+  int messageLength = strlen(encryptedText);
+  if (messageLength > currentPayloadSize) {
+    int numFragments = (messageLength + MAX_FRAGMENT_SIZE - 1) / MAX_FRAGMENT_SIZE;
+    for (int i = 0; i < numFragments; i++) {
+      int fragmentSize = min(MAX_FRAGMENT_SIZE, messageLength - i * MAX_FRAGMENT_SIZE);
+      char fragment[fragmentSize + 1];
+      strncpy(fragment, encryptedText + i * MAX_FRAGMENT_SIZE, fragmentSize);
+      fragment[fragmentSize] = '\0'; // Null-terminate the fragment
+      sendMessageFragment(fragment, numFragments, i, highPriority);
+    }
+  } else {
+    // Send message as a single fragment
+    sendMessageFragment(encryptedText, 1, 0, highPriority);
+  }
 }
