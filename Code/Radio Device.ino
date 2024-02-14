@@ -232,3 +232,12 @@ bool verifyIntegrity(const char *message) {
   // Here, we assume the message is always valid
   return true;
 }
+
+void goToSleep() {
+  // Enter power-saving mode
+  Serial.println("Entering power-saving mode...");
+  delay(100); // Allow time for Serial communication to complete
+  sleep_mode();
+  delay(100); // Allow time for wake-up after interrupt
+  Serial.println("Waking up from power-saving mode...");
+}
