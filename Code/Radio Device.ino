@@ -6,3 +6,6 @@
 #include <IRremote.h>
 #include <SparkFunBME280.h>
 #include <Adafruit_Sensor.h>
+
+SparkFunBME280 bme; // Create BME280 object
+Adafruit_Sensor *humidity, *temp, *pressure, *altitude;
