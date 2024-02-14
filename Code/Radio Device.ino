@@ -9,3 +9,5 @@
 
 SparkFunBME280 bme; // Create BME280 object
 Adafruit_Sensor *humidity, *temp, *pressure, *altitude;
+
+AESLib aes;
