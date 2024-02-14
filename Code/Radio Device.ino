@@ -87,5 +87,49 @@ void loop() {
     }
   }
 
-  
+    // Receive message
+  if (radio.available()) {
+    uint8_t len;
+    if (radio.read(&len, sizeof(len))) {
+      char receivedText[len + 1];
+      if (radio.read(receivedText, len)) {
+        receivedText[len] = '\0'; // Null-terminate the string
+        
+        // Decrypt message
+        char decryptedText[len + 1];
+        aes.do_aes_decrypt((uint8_t*)receivedText, len, (uint8_t*)decryptedText, aesKey, 128);
+        
+        // Store in message buffer
+        if (bufferIndex < BUFFER_SIZE) {
+          strcpy(messageBuffer[bufferIndex], decryptedText);
+          bufferIndex++;
+        }
+        else {
+          Serial.println("Message buffer full. Incoming message discarded.");
+        }
+        
+        Serial.println("Received: " + String(decryptedText));
+        digitalWrite(ledReceive, HIGH); // Turn on receive LED
+        
+        // Check message integrity
+        if (verifyIntegrity(decryptedText)) {
+          // Simulate error detection
+          if (random(0, 10) < 2) { // 20% chance of error
+            Serial.println("Error detected in received message. Requesting retransmission...");
+            sendMessage("Error detected, please retransmit.", false);
+          } else {
+            // Send acknowledgment
+            sendMessage("ACK", false);
+          }
+        } else {
+          Serial.println("Message integrity check failed. Ignoring message.");
+        }
+        
+        delay(1000);
+        digitalWrite(ledReceive, LOW); // Turn off receive LED
+      }
+    }
+  }
+
+    
 }
