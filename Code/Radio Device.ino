@@ -177,3 +177,13 @@ void sendMessage(const char *message, bool highPriority) {
     sendMessageFragment(encryptedText, 1, 0, highPriority);
   }
 }
+
+void sendMessageFragment(const char *fragment, int numFragments, int fragmentIndex, bool highPriority) {
+  // Construct fragment header
+  String fragmentHeader = String(numFragments) + FRAGMENT_DELIMITER + String(fragmentIndex) + FRAGMENT_DELIMITER;
+
+  // Construct complete message
+  String completeMessage = fragmentHeader + fragment;
+
+  
+}
