@@ -149,3 +149,17 @@ void loop() {
   delay(100); // Allow time for interrupt to trigger
   detachInterrupt(digitalPinToInterrupt(RTC_INTERRUPT_PIN));  
 }
+
+void sendMessage(const char *message, bool highPriority) {
+  // Increment sequence number
+  sequenceNumber++;
+
+  // Encrypt message
+  char encryptedText[100];
+  aes.do_aes_encrypt((uint8_t*)message, strlen(message), (uint8_t*)encryptedText, aesKey, 128);
+
+  // Compress data
+  // Compression algorithm can be implemented here
+  
+  
+}
