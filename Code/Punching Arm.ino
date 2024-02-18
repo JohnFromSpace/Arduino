@@ -30,3 +30,7 @@ char keys[ROWS][COLS] = {
 byte rowPins[ROWS] = {A0, A1, A2, A3}; // Connect to the row pinouts of the keypad
 byte colPins[COLS] = {A4, A5, 2, 3}; // Connect to the column pinouts of the keypad
 Keypad keypad = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS );
+
+// Define pins for pneumatic system
+#define SOLENOID_PIN 13
+#define PRESSURE_SENSOR_PIN A6
