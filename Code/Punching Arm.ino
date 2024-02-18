@@ -69,3 +69,15 @@ void setup() {
   
   Serial.begin(9600);
 }
+
+void loop() {
+  //gestureRecognition();  // Uncomment to enable gesture recognition
+  
+  char key = keypad.getKey(); // Read keypad input
+  
+  if (key != NO_KEY) {
+    // Perform punching action based on keypad input
+    int direction = key - '0'; // Convert char to integer
+    performPunch(direction);
+  }
+}
