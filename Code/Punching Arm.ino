@@ -216,3 +216,8 @@ void saveSettings() {
   // Write user settings to EEPROM
   EEPROM.put(EEPROM_ADDRESS, currentUserSettings);
 }
+
+void loadSettings() {
+  // Read user settings from EEPROM
+  EEPROM.get(EEPROM_ADDRESS, currentUserSettings);
+}
