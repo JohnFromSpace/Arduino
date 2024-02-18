@@ -11,3 +11,8 @@
 Servo shoulderServo;   // Create servo objects
 Servo elbowServo;
 Servo wristServo;
+
+// Define neutral positions for the servos
+const int shoulderNeutral = 90;  
+const int elbowNeutral = 120;
+const int wristNeutral = 90;
