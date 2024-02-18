@@ -59,6 +59,8 @@ void adjustPneumaticPressure(int targetForce);
 void saveSettings();
 void loadSettings();
 void gestureRecognition();
+void saveSettings();
+void loadSettings();
 
 void setup() {
   shoulderServo.attach(SHOULDER_PIN);  // Attach servo objects to pins
