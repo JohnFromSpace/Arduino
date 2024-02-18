@@ -162,6 +162,12 @@ void resetArm() {
   moveArm(shoulderNeutral, elbowNeutral, wristNeutral, 500);
 }
 
+void increasePressure() {
+  // Activate a solenoid valve or pump to increase pressure
+  digitalWrite(SOLENOID_PIN, HIGH); // Example: activate a solenoid valve
+  // Alternatively, control a pump to increase pressure
+}
+
 void adjustPneumaticPressure(int targetForce) {
   // Read current force from the pressure sensor
   int currentForce = analogRead(PRESSURE_SENSOR_PIN);
