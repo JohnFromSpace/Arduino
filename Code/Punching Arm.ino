@@ -94,6 +94,8 @@ void loop() {
     int direction = key - '0'; // Convert char to integer
     performPunch(direction);
   }
+
+  loadSettings();
 }
 
 void performPunch(int direction) {
