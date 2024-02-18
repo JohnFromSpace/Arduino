@@ -41,3 +41,12 @@ const int maxForce = 1023;
 
 // Define feedback LED pin
 #define FEEDBACK_LED_PIN 7
+
+// Function prototypes
+void performPunch(int direction);
+void moveArm(int shoulderAngle, int elbowAngle, int wristAngle, int duration);
+void resetArm();
+void adjustPneumaticPressure(int targetForce);
+void saveSettings();
+void loadSettings();
+void gestureRecognition();
