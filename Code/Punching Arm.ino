@@ -48,6 +48,9 @@ const int maxForce = 1023;
 // Define feedback LED pin
 #define FEEDBACK_LED_PIN 7
 
+// Define EEPROM address for storing user settings
+#define EEPROM_ADDRESS 0
+
 // Function prototypes
 void performPunch(int direction);
 void moveArm(int shoulderAngle, int elbowAngle, int wristAngle, int duration);
