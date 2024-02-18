@@ -211,3 +211,8 @@ void displayFeedback() {
   int feedbackIntensity = map(userForce, minForce, maxForce, 0, 255);
   analogWrite(FEEDBACK_LED_PIN, feedbackIntensity);
 }
+
+void saveSettings() {
+  // Write user settings to EEPROM
+  EEPROM.put(EEPROM_ADDRESS, currentUserSettings);
+}
