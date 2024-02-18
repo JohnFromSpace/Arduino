@@ -62,6 +62,9 @@ void gestureRecognition();
 void saveSettings();
 void loadSettings();
 
+// Global variable to hold user settings
+UserSettings currentUserSettings;
+
 void setup() {
   shoulderServo.attach(SHOULDER_PIN);  // Attach servo objects to pins
   elbowServo.attach(ELBOW_PIN);
