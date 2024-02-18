@@ -38,3 +38,6 @@ Keypad keypad = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS );
 // Define punching force thresholds
 const int minForce = 0;
 const int maxForce = 1023;
+
+// Define feedback LED pin
+#define FEEDBACK_LED_PIN 7
