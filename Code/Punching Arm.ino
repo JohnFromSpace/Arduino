@@ -168,6 +168,12 @@ void increasePressure() {
   // Alternatively, control a pump to increase pressure
 }
 
+void decreasePressure() {
+  // Deactivate a solenoid valve or release pressure
+  digitalWrite(SOLENOID_PIN, LOW); // Example: deactivate a solenoid valve
+  // Alternatively, release pressure from the system
+}
+
 void adjustPneumaticPressure(int targetForce) {
   // Read current force from the pressure sensor
   int currentForce = analogRead(PRESSURE_SENSOR_PIN);
