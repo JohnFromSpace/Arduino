@@ -34,3 +34,7 @@ Keypad keypad = Keypad( makeKeymap(keys), rowPins, colPins, ROWS, COLS );
 // Define pins for pneumatic system
 #define SOLENOID_PIN 13
 #define PRESSURE_SENSOR_PIN A6
+
+// Define punching force thresholds
+const int minForce = 0;
+const int maxForce = 1023;
