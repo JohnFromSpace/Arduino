@@ -161,3 +161,19 @@ void resetArm() {
   // Move arm back to neutral position
   moveArm(shoulderNeutral, elbowNeutral, wristNeutral, 500);
 }
+
+void adjustPneumaticPressure(int targetForce) {
+  // Read current force from the pressure sensor
+  int currentForce = analogRead(PRESSURE_SENSOR_PIN);
+
+  // Define threshold values for pressure adjustment
+  int pressureThreshold = 50; // Adjust as needed
+
+  if (currentForce < targetForce - pressureThreshold) {
+    // Increase pressure to increase force
+    increasePressure();
+  } else if (currentForce > targetForce + pressureThreshold) {
+    // Decrease pressure to reduce force
+    decreasePressure();
+  }
+}
