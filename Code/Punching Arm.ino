@@ -123,3 +123,36 @@ void performPunch(int direction) {
   // Reset arm to neutral position after punch
   resetArm();
 }
+
+void moveArm(int shoulderAngle, int elbowAngle, int wristAngle, int duration) {
+  // Move servos to specified angles over the given duration
+  
+  int shoulderCurrent = shoulderServo.read();
+  int elbowCurrent = elbowServo.read();
+  int wristCurrent = wristServo.read();
+  
+  int shoulderSteps = abs(shoulderAngle - shoulderCurrent);
+  int elbowSteps = abs(elbowAngle - elbowCurrent);
+  int wristSteps = abs(wristAngle - wristCurrent);
+  
+  int shoulderDirection = (shoulderAngle > shoulderCurrent) ? 1 : -1;
+  int elbowDirection = (elbowAngle > elbowCurrent) ? 1 : -1;
+  int wristDirection = (wristAngle > wristCurrent) ? 1 : -1;
+  
+  int shoulderDelay = duration / shoulderSteps;
+  int elbowDelay = duration / elbowSteps;
+  int wristDelay = duration / wristSteps;
+  
+  for (int i = 1; i <= shoulderSteps; i++) {
+    shoulderServo.write(shoulderCurrent + i * shoulderDirection);
+    delay(shoulderDelay);
+  }
+  for (int i = 1; i <= elbowSteps; i++) {
+    elbowServo.write(elbowCurrent + i * elbowDirection);
+    delay(elbowDelay);
+  }
+  for (int i = 1; i <= wristSteps; i++) {
+    wristServo.write(wristCurrent + i * wristDirection);
+    delay(wristDelay);
+  }
+}
