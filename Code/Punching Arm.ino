@@ -156,3 +156,8 @@ void moveArm(int shoulderAngle, int elbowAngle, int wristAngle, int duration) {
     delay(wristDelay);
   }
 }
+
+void resetArm() {
+  // Move arm back to neutral position
+  moveArm(shoulderNeutral, elbowNeutral, wristNeutral, 500);
+}
