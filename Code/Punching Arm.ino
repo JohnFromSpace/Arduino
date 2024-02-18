@@ -205,3 +205,9 @@ void adjustPneumaticPressure(int targetForce) {
     decreasePressure();
   }
 }
+
+void displayFeedback() {
+  // Display feedback using LED intensity
+  int feedbackIntensity = map(userForce, minForce, maxForce, 0, 255);
+  analogWrite(FEEDBACK_LED_PIN, feedbackIntensity);
+}
