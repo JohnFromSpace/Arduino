@@ -81,3 +81,45 @@ void loop() {
     performPunch(direction);
   }
 }
+
+void performPunch(int direction) {
+  // Adjust servo angles based on punching direction
+  int shoulderAngle = shoulderNeutral;
+  int elbowAngle = elbowNeutral;
+  int wristAngle = wristNeutral;
+  
+  switch(direction) {
+    case 1:  // Adjust servo angles for different punching directions
+      shoulderAngle += 30;
+      break;
+    case 2:
+      shoulderAngle -= 30;
+      break;
+    case 3:
+      elbowAngle += 30;
+      break;
+    case 4:
+      elbowAngle -= 30;
+      break;
+    case 5:
+      wristAngle += 30;
+      break;
+    case 6:
+      wristAngle -= 30;
+      break;
+    default:
+      return; // Exit if invalid direction
+  }
+
+  // Move arm to punching position
+  moveArm(shoulderAngle, elbowAngle, wristAngle, 500);
+  
+  // Adjust pneumatic pressure for dynamic force adjustment
+  adjustPneumaticPressure(userForce);
+  
+  // Display feedback
+  displayFeedback();
+  
+  // Reset arm to neutral position after punch
+  resetArm();
+}
