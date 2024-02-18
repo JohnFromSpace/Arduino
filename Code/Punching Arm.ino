@@ -50,3 +50,22 @@ void adjustPneumaticPressure(int targetForce);
 void saveSettings();
 void loadSettings();
 void gestureRecognition();
+
+void setup() {
+  shoulderServo.attach(SHOULDER_PIN);  // Attach servo objects to pins
+  elbowServo.attach(ELBOW_PIN);
+  wristServo.attach(WRIST_PIN);
+  
+  // Initialize servo positions
+  shoulderServo.write(shoulderNeutral);
+  elbowServo.write(elbowNeutral);
+  wristServo.write(wristNeutral);
+
+  pinMode(SOLENOID_PIN, OUTPUT); // Set solenoid pin as output
+  pinMode(FEEDBACK_LED_PIN, OUTPUT); // Set feedback LED pin as output
+  
+  // Load user settings
+  loadSettings();
+  
+  Serial.begin(9600);
+}
