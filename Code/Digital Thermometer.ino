@@ -157,5 +157,10 @@ void updateLCD(float temperature) {
     lcd.print(" Max: ");
     lcd.print(maxTemperature);
     
+    // Display average temperature
+    lcd.setCursor(0, 2);
+    lcd.print("Avg: ");
+    lcd.print(sumTemperature / numReadings);
+    
     
 }
