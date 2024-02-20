@@ -143,6 +143,12 @@ void updateStatistics(float temperature) {
 void updateLCD(float temperature) {
     // Clear LCD
     lcd.clear();
+        
+    // Display current temperature
+    lcd.setCursor(0, 0);
+    lcd.print("Temp: ");
+    lcd.print(temperature);
+    lcd.print("C");
     
     
 }
