@@ -32,3 +32,7 @@ const char* emailRecipient = "recipient@example.com";
 // Thresholds for temperature alarm
 float highAlarmThreshold = 30.0; // Set initial high temperature threshold (in Celsius)
 float lowAlarmThreshold = 15.0;  // Set initial low temperature threshold (in Celsius)
+
+// Sampling rate variables
+const unsigned long samplingInterval = 10000; // Sampling interval in milliseconds
+unsigned long previousMillis = 0; // Stores the time at which the last reading was taken
