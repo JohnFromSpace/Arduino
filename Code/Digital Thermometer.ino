@@ -46,3 +46,20 @@ const int maxReadings = 100; // Maximum number of readings to store for analysis
 
 // SD card chip select pin
 const int chipSelect = 10;
+
+void setup() {
+    // Initialize Serial port
+    Serial.begin(115200);
+    
+    // Initialize LCD
+    lcd.init();
+    lcd.backlight();
+    
+    // Connect to Wi-Fi
+    connectWiFi();
+    
+    // Start up the Dallas Temperature library
+    sensors.begin();
+    
+    
+}
