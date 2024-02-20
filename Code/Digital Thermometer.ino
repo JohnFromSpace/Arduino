@@ -122,3 +122,20 @@ void sendEmailAlert(float temperature) {
         client.println("QUIT");
     }
 }
+
+void updateStatistics(float temperature) {
+    // Increment number of readings
+    numReadings++;
+    
+    // Update sum of temperatures
+    sumTemperature += temperature;
+    
+    // Update minimum temperature
+    minTemperature = min(minTemperature, temperature);
+    
+    // Update maximum temperature
+    maxTemperature = max(maxTemperature, temperature);
+    
+    // Update LCD display
+    updateLCD(temperature);
+}
