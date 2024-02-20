@@ -139,3 +139,10 @@ void updateStatistics(float temperature) {
     // Update LCD display
     updateLCD(temperature);
 }
+
+void updateLCD(float temperature) {
+    // Clear LCD
+    lcd.clear();
+    
+    
+}
