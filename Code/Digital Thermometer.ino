@@ -63,8 +63,8 @@ void setup() {
     
     // Initialize SD card
     if (!SD.begin(chipSelect)) {
-    Serial.println("SD card initialization failed...");
-    return;
+        Serial.println("SD card initialization failed...");
+        return;
     }
     Serial.println("SD card initialized...");
     
@@ -74,4 +74,26 @@ void setup() {
     // Initialize LCD
     lcd.init();
     lcd.backlight();
+}
+
+void loop() {
+    unsigned long currentMillis = millis();
+    if (currentMillis - previousMillis >= samplingInterval) {
+        previousMillis = currentMillis;
+        
+        // Read temperature
+        sensors.requestTemperatures();
+        float temperature = sensors.getTempCByIndex(0);
+        
+        // Update statistics
+        updateStatistics(temperature);
+        
+        // Log temperature data to SD card
+        logTemperatureData(temperature);
+    
+        // Check temperature against thresholds
+        if (temperature > highAlarmThreshold || temperature < lowAlarmThreshold) {
+            sendEmailAlert(temperature);
+        }
+    }
 }
