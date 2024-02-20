@@ -104,3 +104,21 @@ void connectWiFi() {
         delay(500);
     }
 }
+
+void sendEmailAlert(float temperature) {
+    WiFiClientSecure client;
+    if (client.connect(smtpServer, smtpPort)) {
+        client.println("HELO example.com");
+        client.println("MAIL FROM:<" + String(emailSender) + ">");
+        client.println("RCPT TO:<" + String(emailRecipient) + ">");
+        client.println("DATA");
+        client.println("Subject: Temperature Alert");
+        client.println("From: <" + String(emailSender) + ">");
+        client.println("To: <" + String(emailRecipient) + ">");
+        client.print("Temperature has exceeded threshold: ");
+        client.print(temperature);
+        client.println("°C");
+        client.println(".");
+        client.println("QUIT");
+    }
+}
