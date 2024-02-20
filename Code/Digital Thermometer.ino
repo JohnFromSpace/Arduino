@@ -169,3 +169,22 @@ void updateLCD(float temperature) {
     lcd.print(" High: ");
     lcd.print(highAlarmThreshold);
 }
+
+void logTemperatureData(float temperature) {
+    // Open the file for writing
+    File dataFile = SD.open("temperature.txt", FILE_WRITE);
+    if (dataFile) {
+        // Get current timestamp
+        unsigned long currentTime = millis();
+        
+        // Write timestamp and temperature to file
+        dataFile.print(currentTime);
+        dataFile.print(",");
+        dataFile.println(temperature);
+        
+        // Close the file
+        dataFile.close();
+    } else {
+        Serial.println("Error opening file...");
+    }
+}
