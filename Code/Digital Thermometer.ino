@@ -43,3 +43,6 @@ float minTemperature = 1000; // Initialize minimum temperature to a high value
 float maxTemperature = -1000; // Initialize maximum temperature to a low value
 int numReadings = 0; // Number of temperature readings
 const int maxReadings = 100; // Maximum number of readings to store for analysis
+
+// SD card chip select pin
+const int chipSelect = 10;
