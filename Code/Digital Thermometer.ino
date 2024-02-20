@@ -162,5 +162,10 @@ void updateLCD(float temperature) {
     lcd.print("Avg: ");
     lcd.print(sumTemperature / numReadings);
     
-    
+    // Display thresholds
+    lcd.setCursor(0, 3);
+    lcd.print("Low: ");
+    lcd.print(lowAlarmThreshold);
+    lcd.print(" High: ");
+    lcd.print(highAlarmThreshold);
 }
