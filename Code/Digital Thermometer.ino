@@ -21,3 +21,10 @@ const char* password = "YourWiFiPassword";
 // ThingSpeak settings
 const char* server = "api.thingspeak.com";
 const String apiKey = "YourAPIKey";
+
+// Email settings
+const char* smtpServer = "smtp.gmail.com";
+const uint16_t smtpPort = 587;
+const char* emailSender = "your.email@gmail.com";
+const char* emailPassword = "YourEmailPassword";
+const char* emailRecipient = "recipient@example.com";
