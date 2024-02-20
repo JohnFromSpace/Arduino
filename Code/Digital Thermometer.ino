@@ -150,5 +150,12 @@ void updateLCD(float temperature) {
     lcd.print(temperature);
     lcd.print("C");
     
+    // Display statistics
+    lcd.setCursor(0, 1);
+    lcd.print("Min: ");
+    lcd.print(minTemperature);
+    lcd.print(" Max: ");
+    lcd.print(maxTemperature);
+    
     
 }
