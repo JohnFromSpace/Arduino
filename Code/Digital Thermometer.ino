@@ -61,5 +61,17 @@ void setup() {
     // Start up the Dallas Temperature library
     sensors.begin();
     
+    // Initialize SD card
+    if (!SD.begin(chipSelect)) {
+    Serial.println("SD card initialization failed...");
+    return;
+    }
+    Serial.println("SD card initialized...");
     
+    // Set ThingSpeak settings
+    WiFiClient client;
+    
+    // Initialize LCD
+    lcd.init();
+    lcd.backlight();
 }
