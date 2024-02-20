@@ -36,3 +36,10 @@ float lowAlarmThreshold = 15.0;  // Set initial low temperature threshold (in Ce
 // Sampling rate variables
 const unsigned long samplingInterval = 10000; // Sampling interval in milliseconds
 unsigned long previousMillis = 0; // Stores the time at which the last reading was taken
+
+// Variables for data analysis
+float sumTemperature = 0;
+float minTemperature = 1000; // Initialize minimum temperature to a high value
+float maxTemperature = -1000; // Initialize maximum temperature to a low value
+int numReadings = 0; // Number of temperature readings
+const int maxReadings = 100; // Maximum number of readings to store for analysis
