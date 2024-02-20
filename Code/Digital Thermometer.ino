@@ -28,3 +28,7 @@ const uint16_t smtpPort = 587;
 const char* emailSender = "your.email@gmail.com";
 const char* emailPassword = "YourEmailPassword";
 const char* emailRecipient = "recipient@example.com";
+
+// Thresholds for temperature alarm
+float highAlarmThreshold = 30.0; // Set initial high temperature threshold (in Celsius)
+float lowAlarmThreshold = 15.0;  // Set initial low temperature threshold (in Celsius)
