@@ -141,5 +141,22 @@ void loop() {
     strengthButtonState = digitalRead(strengthButtonPin);
     timerButtonState = digitalRead(timerButtonPin);
 
-    
+    // Check if any button is pressed
+    if (espressoButtonState == HIGH) {
+        Serial.println("Espresso selected");
+        brewCoffee(ESPRESSO, espressoBrewTime, strengthButtonState == HIGH ? STRONG : REGULAR);
+        delay(1000); // Delay for button debounce
+    } else if (latteButtonState == HIGH) {
+        Serial.println("Latte selected");
+        brewCoffee(LATTE, latteBrewTime, strengthButtonState == HIGH ? STRONG : REGULAR);
+        delay(1000); // Delay for button debounce
+    } else if (cappuccinoButtonState == HIGH) {
+        Serial.println("Cappuccino selected");
+        brewCoffee(CAPPUCCINO, cappuccinoBrewTime, strengthButtonState == HIGH ? STRONG : REGULAR);
+        delay(1000); // Delay for button debounce
+    } else if (timerButtonState == HIGH) {
+        // Implement timer function
+        // Add your logic here
+        delay(1000); // Delay for button debounce
+    }
 }
