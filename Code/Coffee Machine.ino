@@ -72,6 +72,38 @@ void brewCoffee(CoffeeType type, int brewTime, StrengthLevel strength) {
         tone(buzzerPin, 2000, 1000); // Beep to indicate filter replacement needed
         delay(2000);
     }
-
     
+    // Display selected coffee and strength
+    lcd.clear();
+    switch (type) {
+        case ESPRESSO:
+            lcd.print("Espresso");
+            break;
+        case LATTE:
+            lcd.print("Latte");
+            break;
+        case CAPPUCCINO:
+            lcd.print("Cappuccino");
+            break;
+    }
+    lcd.setCursor(0, 1);
+    lcd.print("Strength:");
+    lcd.setCursor(10, 1);
+    lcd.print(strength == REGULAR ? "Regular" : "Strong");
+    lcd.setCursor(0, 2);
+    lcd.print("Brewing...");
+
+    // Start pump
+    digitalWrite(pumpPin, HIGH);
+
+    // Brew coffee
+    digitalWrite(buzzerPin, HIGH); // Sound buzzer to indicate brewing started
+    delay(brewTime);
+    digitalWrite(buzzerPin, LOW); // Stop buzzer
+    digitalWrite(pumpPin, LOW); // Stop pump
+
+    // Display message
+    lcd.clear();
+    lcd.print("Enjoy your coffee!");
+    delay(2000);
 }
