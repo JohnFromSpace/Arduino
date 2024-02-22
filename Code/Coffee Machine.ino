@@ -132,3 +132,14 @@ void setup() {
     digitalWrite(pumpPin, LOW);
     digitalWrite(buzzerPin, LOW);
 }
+
+void loop() {
+    // Read the state of the buttons
+    espressoButtonState = digitalRead(espressoButtonPin);
+    latteButtonState = digitalRead(latteButtonPin);
+    cappuccinoButtonState = digitalRead(cappuccinoButtonPin);
+    strengthButtonState = digitalRead(strengthButtonPin);
+    timerButtonState = digitalRead(timerButtonPin);
+
+    
+}
