@@ -63,6 +63,15 @@ void brewCoffee(CoffeeType type, int brewTime, StrengthLevel strength) {
         delay(2000);
         return;
     }
+    
+    // Check water filter
+    int waterFilter = analogRead(waterFilterPin);
+    if (waterFilter < 100) {
+        lcd.clear();
+        lcd.print("Replace Filter!");
+        tone(buzzerPin, 2000, 1000); // Beep to indicate filter replacement needed
+        delay(2000);
+    }
 
     
 }
