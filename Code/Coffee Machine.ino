@@ -12,3 +12,10 @@ const int grinderPin = 6;
 const int buzzerPin = 7;
 const int strengthButtonPin = 8;
 const int timerButtonPin = 9;
+
+// Variables to store button state
+int espressoButtonState = 0;
+int latteButtonState = 0;
+int cappuccinoButtonState = 0;
+int strengthButtonState = 0;
+int timerButtonState = 0;
