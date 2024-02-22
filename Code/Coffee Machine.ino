@@ -107,3 +107,28 @@ void brewCoffee(CoffeeType type, int brewTime, StrengthLevel strength) {
     lcd.print("Enjoy your coffee!");
     delay(2000);
 }
+
+void setup() {
+    // Initialize serial communication
+    Serial.begin(9600);
+
+    // Initialize LCD
+    lcd.begin(16, 2);
+
+    // Initialize button pins
+    pinMode(espressoButtonPin, INPUT);
+    pinMode(latteButtonPin, INPUT);
+    pinMode(cappuccinoButtonPin, INPUT);
+    pinMode(strengthButtonPin, INPUT);
+    pinMode(timerButtonPin, INPUT);
+
+    // Initialize pump pin
+    pinMode(pumpPin, OUTPUT);
+
+    // Initialize buzzer pin
+    pinMode(buzzerPin, OUTPUT);
+
+    // Set initial state
+    digitalWrite(pumpPin, LOW);
+    digitalWrite(buzzerPin, LOW);
+}
