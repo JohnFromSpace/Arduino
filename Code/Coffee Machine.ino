@@ -22,3 +22,8 @@ int timerButtonState = 0;
 
 // LCD
 LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
+
+// Brewing parameters
+const int espressoBrewTime = 3000; // 3 seconds
+const int latteBrewTime = 5000;    // 5 seconds
+const int cappuccinoBrewTime = 7000; // 7 seconds
