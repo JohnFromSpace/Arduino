@@ -52,6 +52,17 @@ void brewCoffee(CoffeeType type, int brewTime, StrengthLevel strength) {
         delay(2000);
         return;
     }
+    
+    // Check water temperature
+    int waterTemp = analogRead(waterTempPin);
+    float temperature = (waterTemp / 1023.0) * 5000 / 10; // Convert to Celsius
+    if (temperature < 85 || temperature > 95) {
+        lcd.clear();
+        lcd.print("Water Temp Err!");
+        tone(buzzerPin, 1500, 1000); // Beep to indicate temperature error
+        delay(2000);
+        return;
+    }
 
     
 }
