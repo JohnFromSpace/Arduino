@@ -34,3 +34,9 @@ enum CoffeeType {
     LATTE,
     CAPPUCCINO
 };
+
+// Strength levels
+enum StrengthLevel {
+    REGULAR,
+    STRONG
+};
