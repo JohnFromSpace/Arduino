@@ -40,3 +40,18 @@ enum StrengthLevel {
     REGULAR,
     STRONG
 };
+
+// Function to brew coffee
+void brewCoffee(CoffeeType type, int brewTime, StrengthLevel strength) {
+    // Check water level
+    int waterLevel = analogRead(waterLevelPin);
+    if (waterLevel < 100) {
+        lcd.clear();
+        lcd.print("Water Low!");
+        tone(buzzerPin, 1000, 1000); // Beep to indicate water low
+        delay(2000);
+        return;
+    }
+
+    
+}
