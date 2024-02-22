@@ -19,3 +19,6 @@ int latteButtonState = 0;
 int cappuccinoButtonState = 0;
 int strengthButtonState = 0;
 int timerButtonState = 0;
+
+// LCD
+LiquidCrystal lcd(12, 11, 5, 4, 3, 2);
