@@ -21,3 +21,13 @@ LiquidCrystal lcd(12, 11, 5, 4, 3, 2);  // Initialize the LCD
 double Kp = 0.1;  // Proportional constant
 double Ki = 0.05; // Integral constant
 double Kd = 0.02; // Derivative constant
+
+// PID variables
+double setpoint = 0; // Target blower speed
+double output = 0;   // PID output
+double input = 0;    // Actual blower speed
+double integral = 0; // Integral term
+double lastInput = 0; // Previous actual speed
+double derivative = 0; // Derivative term
+unsigned long lastTime = 0;
+double dt = 100; // Time interval for PID calculation (in milliseconds)
