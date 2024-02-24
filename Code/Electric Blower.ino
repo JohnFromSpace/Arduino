@@ -9,3 +9,7 @@ const int potentiometerPin = A0;        // Potentiometer pin
 const int buttonPin = 2;                // Push button pin
 const int temperatureSensorPin = A1;    // Temperature sensor pin
 const int chipSelectPin = 10;           // SD card CS pin
+
+// Bluetooth module configuration
+SoftwareSerial bluetoothSerial(8, 7);   // RX, TX pins of Bluetooth module
+char receivedChar;
