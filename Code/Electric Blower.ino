@@ -224,5 +224,12 @@ void loop() {
   bluetoothSerial.print("C  Mode: ");
   bluetoothSerial.println(mode == MANUAL ? "Manual" : "Automatic");
 
-  
+  // Debugging output
+  Serial.print("Speed: ");
+  Serial.print(speedPercentage);
+  Serial.print("%  Temperature: ");
+  Serial.print(temperatureCelsius);
+  Serial.println("C");
+
+  delay(100);
 }
