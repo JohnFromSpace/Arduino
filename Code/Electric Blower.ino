@@ -216,5 +216,13 @@ void loop() {
     Serial.println("Error writing to datalog.txt!");
   }
 
+  // Send real-time data over Bluetooth
+  bluetoothSerial.print("Speed: ");
+  bluetoothSerial.print(speedPercentage);
+  bluetoothSerial.print("%  Temp: ");
+  bluetoothSerial.print(temperatureCelsius);
+  bluetoothSerial.print("C  Mode: ");
+  bluetoothSerial.println(mode == MANUAL ? "Manual" : "Automatic");
+
   
 }
