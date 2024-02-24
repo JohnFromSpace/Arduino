@@ -31,3 +31,10 @@ double lastInput = 0; // Previous actual speed
 double derivative = 0; // Derivative term
 unsigned long lastTime = 0;
 double dt = 100; // Time interval for PID calculation (in milliseconds)
+
+// Blower operating modes
+enum OperatingMode {
+  MANUAL,
+  AUTOMATIC
+};
+OperatingMode mode = MANUAL; // Initial operating mode
