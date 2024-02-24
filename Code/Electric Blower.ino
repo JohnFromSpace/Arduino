@@ -38,3 +38,7 @@ enum OperatingMode {
   AUTOMATIC
 };
 OperatingMode mode = MANUAL; // Initial operating mode
+
+bool blowerState = false; // Blower state
+unsigned long overheatingStartTime = 0; // Overheating start time
+const unsigned long overheatingTimeout = 300000; // Overheating timeout (5 minutes)
