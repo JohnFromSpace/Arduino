@@ -45,3 +45,36 @@ const unsigned long overheatingTimeout = 300000; // Overheating timeout (5 minut
 
 // SD card logging
 File dataFile;
+
+void performCalibration() {
+  // Display calibration message
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("Calibrating...");
+  
+  // Perform calibration steps here
+  // Measure system response to step input or other calibration method
+  // Adjust PID constants accordingly
+  
+  // Example: Set PID constants to default values initially
+  Kp = 0.1;
+  Ki = 0.05;
+  Kd = 0.02;
+
+  // Display calibrated PID constants
+  lcd.clear();
+  lcd.setCursor(0, 0);
+  lcd.print("Calibration done");
+  lcd.setCursor(0, 1);
+  lcd.print("Kp: ");
+  lcd.print(Kp);
+  lcd.setCursor(8, 1);
+  lcd.print("Ki: ");
+  lcd.print(Ki);
+  lcd.setCursor(0, 2);
+  lcd.print("Kd: ");
+  lcd.print(Kd);
+  
+  // Delay to display calibration results (adjust as needed)
+  delay(3000);
+}
