@@ -16,3 +16,8 @@ char receivedChar;
 
 // LCD configuration
 LiquidCrystal lcd(12, 11, 5, 4, 3, 2);  // Initialize the LCD
+
+// PID constants
+double Kp = 0.1;  // Proportional constant
+double Ki = 0.05; // Integral constant
+double Kd = 0.02; // Derivative constant
