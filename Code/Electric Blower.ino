@@ -78,3 +78,30 @@ void performCalibration() {
   // Delay to display calibration results (adjust as needed)
   delay(3000);
 }
+
+void setup() {
+  // Set pin modes
+  pinMode(blowerPin, OUTPUT);
+  pinMode(buttonPin, INPUT_PULLUP);
+  Serial.begin(9600);
+  bluetoothSerial.begin(9600);
+  lcd.begin(16, 2);
+  lcd.setCursor(0, 0);
+  lcd.print("Blower Speed:");
+
+  // Initialize the SD card
+  if (!SD.begin(chipSelectPin)) {
+    Serial.println("SD card initialization failed!");
+    return;
+  }
+  Serial.println("SD card initialized.");
+  dataFile = SD.open("datalog.txt", FILE_WRITE);
+  if (!dataFile) {
+    Serial.println("Error opening datalog.txt!");
+    return;
+  }
+  dataFile.println("Time(ms),Blower Speed, Temperature(C)");
+
+  // Perform automatic calibration
+  performCalibration();
+}
