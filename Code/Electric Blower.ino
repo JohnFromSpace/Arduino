@@ -118,5 +118,19 @@ void loop() {
   int temperatureValue = analogRead(temperatureSensorPin);
   float temperatureCelsius = (temperatureValue / 1023.0) * 500;
 
+  // Check for overheating
+  if (temperatureCelsius > 70) {
+    if (overheatingStartTime == 0) {
+      overheatingStartTime = millis();
+    } else {
+      if (millis() - overheatingStartTime > overheatingTimeout) {
+        blowerState = false;
+        overheatingStartTime = 0;
+      }
+    }
+  } else {
+    overheatingStartTime = 0;
+  }
+
   
 }
