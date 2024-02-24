@@ -13,3 +13,6 @@ const int chipSelectPin = 10;           // SD card CS pin
 // Bluetooth module configuration
 SoftwareSerial bluetoothSerial(8, 7);   // RX, TX pins of Bluetooth module
 char receivedChar;
+
+// LCD configuration
+LiquidCrystal lcd(12, 11, 5, 4, 3, 2);  // Initialize the LCD
