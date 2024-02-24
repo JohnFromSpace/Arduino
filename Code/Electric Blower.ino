@@ -193,5 +193,16 @@ void loop() {
     }
   }
 
+  // Update LCD display
+  int speedPercentage = map(setpoint, 0, 255, 0, 100);
+  lcd.setCursor(0, 1);
+  lcd.print("                ");
+  lcd.setCursor(0, 1);
+  lcd.print("Speed: ");
+  lcd.print(speedPercentage);
+  lcd.print("%  Temp: ");
+  lcd.print(temperatureCelsius);
+  lcd.print("C  ");
+
   
 }
