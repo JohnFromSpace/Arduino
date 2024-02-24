@@ -105,3 +105,18 @@ void setup() {
   // Perform automatic calibration
   performCalibration();
 }
+
+void loop() {
+  // Read potentiometer value and map it to PWM range
+  int potValue = analogRead(potentiometerPin);
+  setpoint = map(potValue, 0, 1023, 0, 255);
+
+  // Read button state
+  bool buttonState = digitalRead(buttonPin);
+
+  // Read temperature value
+  int temperatureValue = analogRead(temperatureSensorPin);
+  float temperatureCelsius = (temperatureValue / 1023.0) * 500;
+
+  
+}
