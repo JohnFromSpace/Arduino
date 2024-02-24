@@ -204,5 +204,17 @@ void loop() {
   lcd.print(temperatureCelsius);
   lcd.print("C  ");
 
+  // Log data to SD card
+  if (dataFile) {
+    dataFile.print(millis());
+    dataFile.print(",");
+    dataFile.print(speedPercentage);
+    dataFile.print(",");
+    dataFile.print(temperatureCelsius);
+    dataFile.println(",");
+  } else {
+    Serial.println("Error writing to datalog.txt!");
+  }
+
   
 }
