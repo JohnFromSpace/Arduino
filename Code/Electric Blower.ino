@@ -154,5 +154,44 @@ void loop() {
     }
   }
 
+  // Toggle blower state if button is pressed (in manual mode)
+  if (mode == MANUAL && buttonState == LOW) {
+    blowerState = !blowerState;
+    delay(200); // Debounce delay
+  }
+
+  // Perform PID control if blower is on (in automatic mode)
+  if (mode == AUTOMATIC || blowerState) {
+    unsigned long now = millis();
+    unsigned long timeChange = (now - lastTime);
+    if (timeChange >= dt) {
+      input = analogRead(potentiometerPin);
+      double error = setpoint - input;
+      integral += (error * timeChange);
+      derivative = (input - lastInput) / timeChange;
+
+      output = Kp * error + Ki * integral + Kd * derivative;
+
+      if (output < 0) {
+        output = 0;
+      } else if (output > 255) {
+        output = 255;
+      }
+
+      // Smoothly adjust blower speed
+      if (abs(output - analogRead(blowerPin)) > 5) {
+        analogWrite(blowerPin, output);
+      }
+
+      lastInput = input;
+      lastTime = now;
+    }
+  } else {
+    // Smoothly turn off blower if it's on
+    if (analogRead(blowerPin) > 0) {
+      analogWrite(blowerPin, 0);
+    }
+  }
+
   
 }
