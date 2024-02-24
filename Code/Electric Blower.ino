@@ -132,5 +132,27 @@ void loop() {
     overheatingStartTime = 0;
   }
 
+  // Check for incoming Bluetooth data
+  if (bluetoothSerial.available() > 0) {
+    receivedChar = bluetoothSerial.read();
+    if (receivedChar == '1') {
+      blowerState = true;
+      mode = AUTOMATIC; // Switch to automatic mode when blower is turned on remotely
+    } else if (receivedChar == '0') {
+      blowerState = false;
+    } else if (receivedChar == 'K') {
+      // Receive PID constants from Bluetooth
+      if (bluetoothSerial.available() >= 3) {
+        char kpStr[6], kiStr[6], kdStr[6];
+        bluetoothSerial.readBytesUntil(',', kpStr, sizeof(kpStr));
+        bluetoothSerial.readBytesUntil(',', kiStr, sizeof(kiStr));
+        bluetoothSerial.readBytesUntil('\n', kdStr, sizeof(kdStr));
+        Kp = atof(kpStr);
+        Ki = atof(kiStr);
+        Kd = atof(kdStr);
+      }
+    }
+  }
+
   
 }
